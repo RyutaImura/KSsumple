@@ -1,0 +1,91 @@
+/* リセットや基本設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  /* ヘッダーの固定表示 */
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    transition: transform 0.3s ease;
+    z-index: 999;
+  }
+  
+  /* ヘッダーを上に隠す／表示するクラス */
+  .header--hidden {
+    transform: translateY(-100%);
+  }
+  .header--visible {
+    transform: translateY(0);
+  }
+  
+  /* ナビゲーションのスタイル */
+  nav ul {
+    display: flex;
+    list-style: none;
+    padding: 1rem;
+    margin: 0;
+    justify-content: center; /* メニューを中央寄せ */
+  }
+  
+  nav li {
+    margin: 0 1rem;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* メインコンテンツの余白（固定ヘッダー分） */
+  main {
+    padding: 120px 1rem 2rem;
+    /* 120pxはヘッダーの高さ + 余裕分を目安に設定 */
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* 左側の数字を縦一覧で表示 */
+  .numbers-container ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .numbers-container li {
+    font-size: 1.2rem;
+    margin: 0.25rem 0;
+  }
+  
+  /* フローティングバナーのスタイル（右側縦書き） */
+  .floating-banner {
+    position: fixed;
+    top: 50%;
+    right: 10px;       /* 画面右から10pxの位置に配置 */
+    transform: translateY(-50%);
+    background-color: #f33;
+    border-radius: 5px;
+    padding: 1em;
+    z-index: 1000;     /* ヘッダーよりも上に表示したい場合はヘッダーより大きめに */
+  }
+  
+  .floating-banner a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    /* 縦書きにする設定 */
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+  }
+  
