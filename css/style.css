@@ -1,91 +1,132 @@
 /* リセットや基本設定 */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: sans-serif;
-    line-height: 1.6;
-    color: #333;
-  }
-  
-  /* ヘッダーの固定表示 */
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: #333;
-    transition: transform 0.3s ease;
-    z-index: 999;
-  }
-  
-  /* ヘッダーを上に隠す／表示するクラス */
-  .header--hidden {
-    transform: translateY(-100%);
-  }
-  .header--visible {
-    transform: translateY(0);
-  }
-  
-  /* ナビゲーションのスタイル */
-  nav ul {
-    display: flex;
-    list-style: none;
-    padding: 1rem;
-    margin: 0;
-    justify-content: center; /* メニューを中央寄せ */
-  }
-  
-  nav li {
-    margin: 0 1rem;
-  }
-  
-  nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  /* メインコンテンツの余白（固定ヘッダー分） */
-  main {
-    padding: 120px 1rem 2rem;
-    /* 120pxはヘッダーの高さ + 余裕分を目安に設定 */
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  /* 左側の数字を縦一覧で表示 */
-  .numbers-container ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  
-  .numbers-container li {
-    font-size: 1.2rem;
-    margin: 0.25rem 0;
-  }
-  
-  /* フローティングバナーのスタイル（右側縦書き） */
-  .floating-banner {
-    position: fixed;
-    top: 50%;
-    right: 10px;       /* 画面右から10pxの位置に配置 */
-    transform: translateY(-50%);
-    background-color: #f33;
-    border-radius: 5px;
-    padding: 1em;
-    z-index: 1000;     /* ヘッダーよりも上に表示したい場合はヘッダーより大きめに */
-  }
-  
-  .floating-banner a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    /* 縦書きにする設定 */
-    writing-mode: vertical-rl;
-    text-orientation: upright;
-  }
-  
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* ヘッダーのスタイル */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* ヘッダー全体を画面幅に広げる */
+  background-color: #ffffff; /* 背景を白に設定 */
+  z-index: 999;
+  transition: transform 0.3s ease; /* スクロール時のアニメーション */
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* ロゴを左、メニューを右に配置 */
+  max-width: 100%; /* ヘッダー全体を画面幅に広げる */
+  margin: 0 auto;
+  padding: 0 1rem;
+  height: auto; /* 高さを自動調整 */
+  flex-wrap: wrap; /* 必要に応じてメニューを折り返す */
+  box-sizing: border-box; /* はみ出し防止 */
+  border: 1px solid #000; /* 枠線を黒で表示 */
+  border-radius: 5px; /* 角を丸く */
+}
+
+/* スクロール時にヘッダーを隠す/表示する */
+.header--hidden {
+  transform: translateY(-100%); /* ヘッダーを上に隠す */
+}
+
+.header--visible {
+  transform: translateY(0); /* ヘッダーを元に戻す */
+}
+
+/* ロゴのスタイル */
+.logo {
+  display: flex; /* 横並びにする */
+  align-items: center; /* 縦方向の中央揃え */
+  margin-right: auto; /* ロゴを左詰めに配置 */
+}
+
+.logo img {
+  height: 48px; /* 両方の画像の高さを統一 */
+  width: auto; /* 比率を維持して幅を調整 */
+}
+
+.logo-icon {
+  margin-right: 10px; /* アイコンとネームの間のスペース */
+}
+
+/* ナビゲーションのスタイル */
+nav ul {
+  display: flex;
+  flex-wrap: wrap; /* メニュー項目がはみ出さないように折り返しを許可 */
+  list-style: none; /* リストマーカーを削除 */
+  padding: 0;
+  margin: 0;
+  justify-content: flex-end; /* メニューを右詰めに配置 */
+  width: 100%; /* メニュー部分をヘッダー幅に収める */
+  box-sizing: border-box; /* はみ出し防止 */
+}
+
+nav li {
+  margin: 0.5rem 1rem; /* メニュー項目間の余白を調整 */
+  white-space: nowrap; /* 折り返しを防止 */
+}
+
+nav a {
+  color: #000000; /* 文字色を黒に */
+  text-decoration: none; /* 下線を削除 */
+  font-weight: bold;
+  font-size: 0.9rem; /* 文字サイズを調整 */
+  padding: 0.5rem 0.75rem; /* クリック領域を確保 */
+  display: block;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: #555555; /* ホバー時の文字色変更 */
+  background-color: #f0f0f0; /* ホバー時に背景色追加 */
+}
+
+/* メインコンテンツのスタイル */
+main {
+  padding: 140px 1rem 2rem; /* 上部に余白を追加 */
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* 数字リストのスタイル */
+.numbers-container {
+  padding-left: 50px; /* 左側にスペースを追加 */
+}
+
+.numbers-container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.numbers-container li {
+  font-size: 1.2rem;
+  margin: 0.25rem 0;
+}
+
+/* フローティングバナー */
+.floating-banner {
+  position: fixed;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background-color: #f33;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 1em;
+  text-align: center;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
