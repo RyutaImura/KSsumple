@@ -11,7 +11,7 @@ body {
   color: #333;
 }
 
-/* ヘッダーのスタイル */
+/* ヘッダー全体のスタイル */
 header {
   position: fixed;
   top: 0;
@@ -26,11 +26,10 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between; /* ロゴを左、メニューを右に配置 */
-  max-width: 100%; /* ヘッダー全体を画面幅に広げる */
-  margin: 0 auto;
+  flex-wrap: nowrap; /* 折り返しを防止 */
+  max-width: 100%; /* ヘッダー全体を最大化 */
   padding: 0 1rem;
   height: auto; /* 高さを自動調整 */
-  flex-wrap: wrap; /* 必要に応じてメニューを折り返す */
   box-sizing: border-box; /* はみ出し防止 */
   border: 1px solid #000; /* 枠線を黒で表示 */
   border-radius: 5px; /* 角を丸く */
@@ -45,15 +44,17 @@ header {
   transform: translateY(0); /* ヘッダーを元に戻す */
 }
 
-/* ロゴのスタイル */
+/* ロゴ部分のスタイル */
 .logo {
-  display: flex; /* 横並びにする */
+  display: flex; /* ロゴを横並びにする */
   align-items: center; /* 縦方向の中央揃え */
-  margin-right: auto; /* ロゴを左詰めに配置 */
+  flex-shrink: 0; /* ロゴ部分の幅を縮小させない */
+  min-width: 300px; /* ロゴ全体の最小幅を確保 */
+  margin-right: auto; /* ロゴを左寄せに配置 */
 }
 
 .logo img {
-  height: 48px; /* 両方の画像の高さを統一 */
+  height: 48px; /* 画像の高さを統一 */
   width: auto; /* 比率を維持して幅を調整 */
 }
 
@@ -61,16 +62,15 @@ header {
   margin-right: 10px; /* アイコンとネームの間のスペース */
 }
 
-/* ナビゲーションのスタイル */
+/* ナビゲーション部分のスタイル */
 nav ul {
   display: flex;
-  flex-wrap: wrap; /* メニュー項目がはみ出さないように折り返しを許可 */
+  flex-wrap: nowrap; /* 折り返しを防止 */
   list-style: none; /* リストマーカーを削除 */
   padding: 0;
   margin: 0;
   justify-content: flex-end; /* メニューを右詰めに配置 */
-  width: 100%; /* メニュー部分をヘッダー幅に収める */
-  box-sizing: border-box; /* はみ出し防止 */
+  width: auto; /* メニューの幅を自動調整 */
 }
 
 nav li {
