@@ -1,56 +1,59 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>スクロールで隠れるヘッダーサンプル</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スクロールヘッダー + カルーセル + 数字リスト</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- ヘッダー -->
-  <header id="header" class="header--visible">
-    <div class="header-container">
-      <!-- ロゴ -->
-      <div class="logo">
-        <img src="images/logoicon.png" alt="ロゴアイコン" class="logo-icon">
-        <img src="images/logoname.png" alt="ロゴネーム" class="logo-name">
-      </div>
-      <!-- ナビゲーション -->
-      <nav>
-        <ul>
-          <li><a href="#">TOPページ</a></li>
-          <li><a href="#">サービス内容</a></li>
-          <li><a href="#">会社概要</a></li>
-          <li><a href="#">採用情報</a></li>
-          <li><a href="#">実績</a></li>
-          <li><a href="#">料金</a></li>
-          <li><a href="#">経営コラム</a></li>
-          <li><a href="#">お知らせ</a></li>
-          <li><a href="#">お問い合わせ</a></li>
-          <li><a href="#">よくある質問</a></li>
-        </ul>
-      </nav>
+
+    <!-- ヘッダー -->
+    <header id="header" class="header--visible">
+        <div class="header-container">
+            <!-- ロゴ -->
+            <div class="logo">
+                <img src="images/logoicon.png" alt="ロゴアイコン" class="logo-icon">
+                <img src="images/logoname.png" alt="ロゴネーム" class="logo-name">
+            </div>
+            <!-- ナビゲーション -->
+            <nav>
+                <ul>
+                    <li><a href="#">TOPページ</a></li>
+                    <li><a href="#">サービス内容</a></li>
+                    <li><a href="#">会社概要</a></li>
+                    <li><a href="#">採用情報</a></li>
+                    <li><a href="#">実績</a></li>
+                    <li><a href="#">料金</a></li>
+                    <li><a href="#">経営コラム</a></li>
+                    <li><a href="#">お知らせ</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                    <li><a href="#">よくある質問</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- メインビジュアル（カルーセル） -->
+    <div class="carousel">
+        <div class="slides">
+            <div class="slide" style="background-image: url('images/image1.jpg');"></div>
+            <div class="slide" style="background-image: url('images/image2.jpg');"></div>
+            <div class="slide" style="background-image: url('images/image3.jpg');"></div>
+        </div>
+        <button class="arrow arrow-left">&#9665;</button>
+        <button class="arrow arrow-right">&#9655;</button>
     </div>
-  </header>
 
-  <!-- メインコンテンツ -->
-  <main>
-    <h1>スクロールで隠れるヘッダーサンプル</h1>
-    <p>スクロール時にヘッダーが隠れ、上方向スクロールで再表示されます。</p>
-    <p>以下にスクロールできる要素を配置して動作を確認してください。</p>
-    <div class="numbers-container">
-      <ul id="numbers-list">
-        <!-- JavaScriptで数字リストを生成 -->
-      </ul>
-    </div>
-  </main>
+    <!-- 数字リスト -->
+    <main>
+        <div class="numbers-container">
+            <ul id="numbers-list"></ul>
+        </div>
+    </main>
 
-  <!-- フローティングバナー -->
-  <div class="floating-banner">
-    <a href="#">資料請求はこちら</a>
-  </div>
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
 
-  <!-- JavaScript -->
-  <script src="js/main.js"></script>
 </body>
 </html>

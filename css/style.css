@@ -11,122 +11,132 @@ body {
   color: #333;
 }
 
-/* ヘッダー全体のスタイル */
+/* ヘッダー */
 header {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%; /* ヘッダー全体を画面幅に広げる */
-  background-color: #ffffff; /* 背景を白に設定 */
+  width: 100%;
+  background-color: #ffffff;
   z-index: 999;
-  transition: transform 0.3s ease; /* スクロール時のアニメーション */
+  transition: transform 0.3s ease;
+}
+
+.header--hidden {
+  transform: translateY(-100%);
+}
+
+.header--visible {
+  transform: translateY(0);
 }
 
 .header-container {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* ロゴを左、メニューを右に配置 */
-  flex-wrap: nowrap; /* 折り返しを防止 */
-  max-width: 100%; /* ヘッダー全体を最大化 */
+  justify-content: space-between;
+  max-width: 100%;
   padding: 0 1rem;
-  height: auto; /* 高さを自動調整 */
-  box-sizing: border-box; /* はみ出し防止 */
-  border: 1px solid #000; /* 枠線を黒で表示 */
-  border-radius: 5px; /* 角を丸く */
+  height: auto;
+  box-sizing: border-box;
+  border: 1px solid #000;
+  border-radius: 5px;
 }
 
-/* スクロール時にヘッダーを隠す/表示する */
-.header--hidden {
-  transform: translateY(-100%); /* ヘッダーを上に隠す */
-}
-
-.header--visible {
-  transform: translateY(0); /* ヘッダーを元に戻す */
-}
-
-/* ロゴ部分のスタイル */
+/* ロゴ */
 .logo {
-  display: flex; /* ロゴを横並びにする */
-  align-items: center; /* 縦方向の中央揃え */
-  flex-shrink: 0; /* ロゴ部分の幅を縮小させない */
-  min-width: 300px; /* ロゴ全体の最小幅を確保 */
-  margin-right: auto; /* ロゴを左寄せに配置 */
+  display: flex;
+  align-items: center;
+  min-width: 300px;
+  margin-right: auto;
 }
 
 .logo img {
-  height: 48px; /* 画像の高さを統一 */
-  width: auto; /* 比率を維持して幅を調整 */
+  height: 48px;
+  width: auto;
 }
 
 .logo-icon {
-  margin-right: 10px; /* アイコンとネームの間のスペース */
+  margin-right: 10px;
 }
 
-/* ナビゲーション部分のスタイル */
+/* ナビゲーション */
 nav ul {
   display: flex;
-  flex-wrap: nowrap; /* 折り返しを防止 */
-  list-style: none; /* リストマーカーを削除 */
+  flex-wrap: nowrap;
+  list-style: none;
   padding: 0;
   margin: 0;
-  justify-content: flex-end; /* メニューを右詰めに配置 */
-  width: auto; /* メニューの幅を自動調整 */
+  justify-content: flex-end;
+  width: auto;
 }
 
 nav li {
-  margin: 0.5rem 1rem; /* メニュー項目間の余白を調整 */
-  white-space: nowrap; /* 折り返しを防止 */
+  margin: 0.5rem 1rem;
+  white-space: nowrap;
 }
 
 nav a {
-  color: #000000; /* 文字色を黒に */
-  text-decoration: none; /* 下線を削除 */
+  color: #000;
+  text-decoration: none;
   font-weight: bold;
-  font-size: 0.9rem; /* 文字サイズを調整 */
-  padding: 0.5rem 0.75rem; /* クリック領域を確保 */
+  font-size: 0.9rem;
   display: block;
-  transition: color 0.2s ease;
 }
 
-nav a:hover {
-  color: #555555; /* ホバー時の文字色変更 */
-  background-color: #f0f0f0; /* ホバー時に背景色追加 */
+/* カルーセル */
+.carousel {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-/* メインコンテンツのスタイル */
+.slides {
+  display: flex;
+  width: 300vw;
+  height: 100vh;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.arrow-left {
+  left: 10px;
+}
+
+.arrow-right {
+  right: 10px;
+}
+
+/* 数字リスト */
 main {
-  padding: 140px 1rem 2rem; /* 上部に余白を追加 */
+  padding: 140px 1rem 2rem;
   max-width: 800px;
   margin: 0 auto;
 }
 
-/* 数字リストのスタイル */
-.numbers-container {
-  padding-left: 50px; /* 左側にスペースを追加 */
-}
-
 .numbers-container ul {
   list-style: none;
-  padding: 0;
 }
 
 .numbers-container li {
   font-size: 1.2rem;
   margin: 0.25rem 0;
-}
-
-/* フローティングバナー */
-.floating-banner {
-  position: fixed;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  background-color: #f33;
-  color: #fff;
-  font-weight: bold;
-  border-radius: 5px;
-  padding: 1em;
-  text-align: center;
-  writing-mode: vertical-rl;
-  text-orientation: upright;
 }

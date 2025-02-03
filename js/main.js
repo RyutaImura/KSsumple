@@ -1,30 +1,57 @@
 (function () {
-  let lastScrollY = window.pageYOffset; // 前回のスクロール位置を保持
-  const header = document.getElementById('header'); // ヘッダーの取得
+  let lastScrollY = window.pageYOffset;
+  const header = document.getElementById('header');
 
-  // スクロールイベントを監視
   window.addEventListener('scroll', () => {
     const currentScrollY = window.pageYOffset;
-
-    // 下方向にスクロールしている場合
     if (currentScrollY > lastScrollY) {
-      header.classList.remove('header--visible'); // 表示クラスを削除
-      header.classList.add('header--hidden'); // 非表示クラスを追加
+      header.classList.remove('header--visible');
+      header.classList.add('header--hidden');
     } else {
-      // 上方向にスクロールしている場合
-      header.classList.remove('header--hidden'); // 非表示クラスを削除
-      header.classList.add('header--visible'); // 表示クラスを追加
+      header.classList.remove('header--hidden');
+      header.classList.add('header--visible');
     }
-
-    // 現在のスクロール位置を更新
     lastScrollY = currentScrollY;
   });
 
-  // 1-300までの数字を表示
+  // カルーセルスライダー
+  let currentIndex = 0;
+  const slides = document.querySelector('.slides');
+  const totalSlides = document.querySelectorAll('.slide').length;
+  const nextBtn = document.querySelector('.arrow-right');
+  const prevBtn = document.querySelector('.arrow-left');
+  let autoSlide = setInterval(nextSlide, 5000);
+  let userInteracted = false; // ユーザーが矢印をクリックしたかを判定
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateSlidePosition();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateSlidePosition();
+  }
+
+  function updateSlidePosition() {
+    slides.style.transform = `translateX(-${currentIndex * 100}vw)`;
+  }
+
+  function stopAutoSlide() {
+    if (!userInteracted) {
+      clearInterval(autoSlide); // 自動スライドを停止
+      userInteracted = true; // 以降、stopAutoSlide() は呼ばれなくなる
+    }
+  }
+
+  nextBtn.addEventListener('click', () => { nextSlide(); stopAutoSlide(); });
+  prevBtn.addEventListener('click', () => { prevSlide(); stopAutoSlide(); });
+
+  // 1〜300の数字リストを生成
   const numbersList = document.getElementById('numbers-list');
   for (let i = 1; i <= 300; i++) {
-    const li = document.createElement('li'); // <li>タグを作成
-    li.textContent = i; // 数字を設定
-    numbersList.appendChild(li); // <ul>に追加
+    const li = document.createElement('li');
+    li.textContent = i;
+    numbersList.appendChild(li);
   }
 })();
